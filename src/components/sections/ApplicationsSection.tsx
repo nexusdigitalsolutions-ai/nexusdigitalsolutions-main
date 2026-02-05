@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileText, Brain, Shield, ChevronRight } from 'lucide-react';
+import { FileText, Brain, Shield, ChevronRight, Target } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -178,6 +178,28 @@ export default function ApplicationsSection() {
                 setIsTransitioning(true);
                 setTimeout(() => {
                   navigate('/predictive-maintenance');
+                }, 400);
+              }}
+              isTransitioning={isTransitioning}
+            />
+          </motion.div>
+
+          {/* Eval Sphere - New Card */}
+          <motion.div variants={itemVariants}>
+            <ApplicationCard
+              title="Eval Sphere"
+              features={[
+                'GenAI SHAP Engine',
+                'Fairness & Bias Analysis',
+                'Resilience Testing',
+                'Production Readiness',
+              ]}
+              icon={<Target className="w-7 h-7" />}
+              isActive={true}
+              onClick={() => {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  navigate('/eval-sphere');
                 }, 400);
               }}
               isTransitioning={isTransitioning}
