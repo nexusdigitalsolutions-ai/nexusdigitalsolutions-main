@@ -162,19 +162,25 @@ export default function ApplicationsSection() {
             />
           </motion.div>
 
-          {/* Application 2 - Coming Soon */}
+          {/* Application 2 - Predictive Maintenance */}
           <motion.div variants={itemVariants}>
             <ApplicationCard
-              title="Enterprise Suite"
+              title="Predictive Maintenance"
               features={[
-                'Advanced Analytics',
-                'Team Collaboration',
-                'Custom Integrations',
-                'Priority Support',
+                'Predictive Analysis',
+                'AI Maintenance Agents',
+                'Telemetry Monitoring',
+                'RAG Chatbot',
               ]}
               icon={<FileText className="w-7 h-7" />}
-              isActive={false}
-              comingSoon={true}
+              isActive={true}
+              onClick={() => {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  navigate('/predictive-maintenance');
+                }, 400);
+              }}
+              isTransitioning={isTransitioning}
             />
           </motion.div>
 
