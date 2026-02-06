@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileText, Brain, Shield, ChevronRight, Target } from 'lucide-react';
+import { FileText, Brain, Shield, ChevronRight, MessageSquare, Target } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -209,16 +209,22 @@ export default function ApplicationsSection() {
           {/* Application 3 - Coming Soon */}
           <motion.div variants={itemVariants}>
             <ApplicationCard
-              title="Developer Tools"
+              title="VendorVerse Application"
               features={[
-                'API Access',
-                'SDK Libraries',
-                'Webhooks',
-                'Documentation',
+                'RAG Chatbot Agent',
+                'Multi-modal Vision Agent',
+                'Role Based Access Control',
+                'Real-time Voice & Chat',
               ]}
-              icon={<Shield className="w-7 h-7" />}
-              isActive={false}
-              comingSoon={true}
+              icon={<MessageSquare className="w-7 h-7" />}
+              isActive={true}
+              onClick={() => {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  navigate('/vendor-verse');
+                }, 400);
+              }}
+              isTransitioning={isTransitioning}
             />
           </motion.div>
         </motion.div>

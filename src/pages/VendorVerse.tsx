@@ -3,7 +3,7 @@ import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import PredictiveMaintenanceSection from '@/components/sections/PredictiveMaintenanceSection';
+import VendorVerseSection from '@/components/sections/VendorVerseSection';
 import logoImg from '@/assets/logo.png';
 
 // Lazy load the background particle field for performance
@@ -17,7 +17,7 @@ function SceneLoader() {
     );
 }
 
-export default function PredictiveMaintenance() {
+export default function VendorVerse() {
     return (
         <motion.main
             className="relative min-h-screen overflow-x-hidden"
@@ -41,7 +41,7 @@ export default function PredictiveMaintenance() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
             >
-                <nav className="section-container" aria-label="Capability System navigation">
+                <nav className="section-container" aria-label="VendorVerse navigation">
                     <div className="flex items-center justify-between h-16 md:h-20">
                         <Link
                             to="/"
@@ -82,21 +82,21 @@ export default function PredictiveMaintenance() {
                         transition={{ duration: 0.4, delay: 0.4 }}
                     >
                         <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                        <span className="text-sm text-primary font-medium">Active System</span>
+                        <span className="text-sm text-primary font-medium">Full-Stack AI Application</span>
                     </motion.div>
 
                     <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                        PREDICTIVE
-                        <span className="gradient-text"> MAINTENANCE</span>
+                        VENDOR
+                        <span className="gradient-text"> VERSE</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                        Minimize downtime and maximize efficiency with our AI-powered predictive maintenance predictive system.
+                        Chat with your Data. Intelligent Retrieval Augmented Generation (RAG) and Vision capabilities for seamless vendor support.
                     </p>
                 </div>
             </motion.section>
 
-            {/* Capabilities Content */}
-            <PredictiveMaintenanceSection />
+            {/* Features Content */}
+            <VendorVerseSection />
 
             {/* Footer */}
             <footer className="relative py-12 border-t border-border/50">
