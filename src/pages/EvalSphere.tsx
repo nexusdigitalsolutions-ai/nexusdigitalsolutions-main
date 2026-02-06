@@ -107,7 +107,7 @@ export default function EvalSphere() {
 
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-2xl">
                         EVAL
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient-x"> SPHERE</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 animate-gradient-x"> SPHERE <span className="text-3xl md:text-5xl text-slate-400/80 font-bold ml-2">(QA for AI)</span></span>
                     </h1>
                     <p className="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed max-w-[800px]">
                         The ultimate <span className="text-cyan-200 font-semibold">Quality Assurance Framework</span> for next-gen AI.

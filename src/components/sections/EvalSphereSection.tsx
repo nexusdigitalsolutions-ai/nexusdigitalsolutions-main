@@ -123,7 +123,7 @@ export default function EvalSphereSection() {
                         Multi-Dimensional <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Quality Evaluation</span>
                     </h2>
                     <p className="text-lg text-slate-400 max-w-3xl mx-auto">
-                        Eval Sphere evaluates AI agents across five key pillars: Accuracy, Robustness, Resilience, Fairness, and Cost Efficiency.
+                        Eval Sphere (QA for AI) evaluates AI agents across five key pillars: Accuracy, Robustness, Resilience, Fairness, and Cost Efficiency.
                     </p>
                 </div>
 

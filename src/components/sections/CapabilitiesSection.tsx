@@ -26,6 +26,8 @@ import signLanguageImg from '@/assets/feature-sign-language.jpg';
 import biometricSecurityImg from '@/assets/feature-biometric-security.jpg';
 import accessibilityImg from '@/assets/feature-accessibility.jpg';
 import CapabilitiesTree from '../three/CapabilitiesTree';
+import MobileCapabilitiesFlow from './MobileCapabilitiesFlow';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface FeatureCardProps {
   title: string;
@@ -95,6 +97,7 @@ function FeatureCard({ title, description, features, image, icon, index, tag }: 
 }
 
 export default function CapabilitiesSection() {
+  const isMobile = useIsMobile();
   const features = [
     {
       title: 'Intelligent Document Processing (RAG)',
@@ -196,18 +199,24 @@ export default function CapabilitiesSection() {
           </p>
         </motion.div>
 
-        {/* 3D Capabilities Tree */}
-        <div className="w-full h-[85vh] rounded-2xl overflow-hidden border border-primary/10 bg-background/30 backdrop-blur-sm relative">
-          <div className="absolute top-4 left-4 z-10 bg-background/80 backdrop-blur px-4 py-2 rounded-full border border-primary/20">
-            <p className="text-sm font-medium text-muted-foreground">
-              <span className="animate-pulse mr-2">●</span>
-              Drag to rotate • Hover for details
-            </p>
-          </div>
+        {/* 3D Capabilities Tree / Mobile Flow */}
+        <div className={`w-full ${isMobile ? 'h-auto' : 'h-[85vh]'} rounded-2xl overflow-hidden border border-primary/10 bg-background/30 backdrop-blur-sm relative`}>
+          {!isMobile && (
+            <div className="absolute top-4 left-4 z-10 bg-background/80 backdrop-blur px-4 py-2 rounded-full border border-primary/20">
+              <p className="text-sm font-medium text-muted-foreground">
+                <span className="animate-pulse mr-2">●</span>
+                Drag to rotate • Hover for details
+              </p>
+            </div>
+          )}
 
-          <Suspense fallback={<Loader />}>
-            <CapabilitiesTree />
-          </Suspense>
+          {isMobile ? (
+            <MobileCapabilitiesFlow />
+          ) : (
+            <Suspense fallback={<Loader />}>
+              <CapabilitiesTree />
+            </Suspense>
+          )}
         </div>
 
         {/* Feature Grid Header */}

@@ -187,7 +187,7 @@ export default function ApplicationsSection() {
           {/* Eval Sphere - New Card */}
           <motion.div variants={itemVariants}>
             <ApplicationCard
-              title="Eval Sphere"
+              title="Eval Sphere (QA for AI)"
               features={[
                 'GenAI SHAP Engine',
                 'Fairness & Bias Analysis',
