@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import CapabilitySystem from "./pages/CapabilitySystem";
 import PredictiveMaintenance from "./pages/PredictiveMaintenance";
 import VendorVerse from "./pages/VendorVerse";
+import EvalSphere from "./pages/EvalSphere";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ function AnimatedRoutes() {
         <Route path="/capability-system" element={<CapabilitySystem />} />
         <Route path="/predictive-maintenance" element={<PredictiveMaintenance />} />
         <Route path="/vendor-verse" element={<VendorVerse />} />
+        <Route path="/eval-sphere" element={<EvalSphere />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
