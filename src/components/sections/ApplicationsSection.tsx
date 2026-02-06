@@ -206,6 +206,28 @@ export default function ApplicationsSection() {
             />
           </motion.div>
 
+          {/* Proposal Management - New Card */}
+          <motion.div variants={itemVariants}>
+            <ApplicationCard
+              title="Proposal Management AI"
+              features={[
+                'AI RFP Analysis',
+                'Automated Scoping',
+                'Tech Stack Planning',
+                'Cost Estimation',
+              ]}
+              icon={<Brain className="w-7 h-7" />}
+              isActive={true}
+              onClick={() => {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  navigate('/proposal-management-ai');
+                }, 400);
+              }}
+              isTransitioning={isTransitioning}
+            />
+          </motion.div>
+
           {/* Application 3 - Coming Soon */}
           <motion.div variants={itemVariants}>
             <ApplicationCard
