@@ -1,5 +1,5 @@
-import { useRef, useState, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { useRef, useState, useMemo, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Text, Html, Line, useTexture, Float, OrbitControls, Billboard, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
 import { capabilitiesData, CapabilityFeature } from '@/data/capabilitiesData';
@@ -217,6 +217,31 @@ function CentralNode({ isAnyHovered }: { isAnyHovered: boolean }) {
     )
 }
 
+
+
+// --- Responsive Camera Controller ---
+function ResponsiveCamera() {
+    const { camera, size } = useThree();
+
+    useEffect(() => {
+        const aspect = size.width / size.height;
+        // Estimated total width of the scene to keep visible (nodes + text margins)
+        const targetSceneWidth = 38;
+
+        // Calculate required distance to fit target width:
+        // distance = (width / 2) / (aspect * tan(fov / 2))
+        const fov = 45;
+        const rad = (fov * Math.PI) / 180;
+        const dist = (targetSceneWidth / 2) / (Math.tan(rad / 2) * aspect);
+
+        // Set camera Z (min 24 for desktop aesthetic, dynamic for mobile)
+        camera.position.z = Math.max(24, dist);
+        camera.updateProjectionMatrix();
+    }, [camera, size]);
+
+    return null;
+}
+
 // --- Main Scene Component ---
 export default function CapabilitiesTree() {
     const [hoveredId, setHoveredId] = useState<string | null>(null);
@@ -236,6 +261,7 @@ export default function CapabilitiesTree() {
     return (
         <div className="w-full h-full relative">
             <Canvas camera={{ position: [0, 2, 24], fov: 45 }} gl={{ toneMapping: THREE.NoToneMapping }}>
+                <ResponsiveCamera />
                 {/* Simple bright lighting setup */}
                 <ambientLight intensity={3} />
                 <pointLight position={[10, 10, 10]} intensity={2} />
@@ -255,15 +281,19 @@ export default function CapabilitiesTree() {
                 ))}
 
                 <OrbitControls
-                    enableZoom={false}
-                    enablePan={false}
+                    enableZoom={true}
+                    enablePan={true}
+                    enableRotate={true}
                     autoRotate={!hoveredId}
-                    autoRotateSpeed={0.8}
+                    autoRotateSpeed={0.5}
+                    minDistance={10}
+                    maxDistance={150}
                     maxPolarAngle={Math.PI / 1.5}
                     minPolarAngle={Math.PI / 3}
+                    makeDefault // Ensures controls work correctly with gestures
                 />
 
-                <fog attach="fog" args={['#020817', 5, 40]} />
+                <fog attach="fog" args={['#020817', 5, 180]} />
             </Canvas>
         </div>
     );
