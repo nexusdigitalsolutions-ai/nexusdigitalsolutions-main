@@ -11,9 +11,10 @@ interface ApplicationCardProps {
   comingSoon?: boolean;
   onClick?: () => void;
   isTransitioning?: boolean;
+  isOtherTransitioning?: boolean;
 }
 
-function ApplicationCard({ title, features, icon, isActive, comingSoon, onClick, isTransitioning }: ApplicationCardProps) {
+function ApplicationCard({ title, features, icon, isActive, comingSoon, onClick, isTransitioning, isOtherTransitioning }: ApplicationCardProps) {
   return (
     <motion.div
       className={`relative glass-card p-6 md:p-8 h-full cursor-pointer ${isActive ? 'neon-border-active' : ''} ${comingSoon ? 'coming-soon-blur' : ''}`}
@@ -25,6 +26,10 @@ function ApplicationCard({ title, features, icon, isActive, comingSoon, onClick,
         scale: 20,
         opacity: 0,
         zIndex: 100
+      } : isOtherTransitioning ? {
+        opacity: 0,
+        scale: 0.9,
+        transition: { duration: 0.2 }
       } : {
         scale: 1,
         opacity: 1
@@ -84,15 +89,22 @@ function ApplicationCard({ title, features, icon, isActive, comingSoon, onClick,
   );
 }
 
-export default function ApplicationsSection() {
-  const navigate = useNavigate();
-  const [isTransitioning, setIsTransitioning] = useState(false);
+import { usePageTransition } from '@/context/PageTransitionContext';
 
-  const handleCapabilityClick = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      navigate('/capability-system');
-    }, 400);
+// ... (Interface and ApplicationCard component remain changed/compatible)
+
+export default function ApplicationsSection() {
+  // Use global transition context
+  const { startTransition, isTransitioning } = usePageTransition();
+  // We can keep local tracking for specific card animation if needed, 
+  // but let's rely on the global loader to mask the page.
+  // However, for the "Card Expansion" effect, we still need to know WHICH card was clicked.
+  const [transitioningId, setTransitioningId] = useState<string | null>(null);
+
+  const handleCapabilityClick = (path: string, id: string, loadingText: string) => {
+    setTransitioningId(id);
+    // Trigger global loader
+    startTransition(path, loadingText);
   };
 
   const containerVariants = {
@@ -157,8 +169,9 @@ export default function ApplicationsSection() {
               ]}
               icon={<Brain className="w-7 h-7" />}
               isActive={true}
-              onClick={handleCapabilityClick}
-              isTransitioning={isTransitioning}
+              onClick={() => handleCapabilityClick('/capability-system', 'access-ai', 'Initializing Access.AI...')}
+              isTransitioning={transitioningId === 'access-ai'}
+              isOtherTransitioning={transitioningId !== null && transitioningId !== 'access-ai'}
             />
           </motion.div>
 
@@ -174,13 +187,9 @@ export default function ApplicationsSection() {
               ]}
               icon={<FileText className="w-7 h-7" />}
               isActive={true}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  navigate('/predictive-maintenance');
-                }, 400);
-              }}
-              isTransitioning={isTransitioning}
+              onClick={() => handleCapabilityClick('/predictive-maintenance', 'predictive', 'Loading Maintenance Systems...')}
+              isTransitioning={transitioningId === 'predictive'}
+              isOtherTransitioning={transitioningId !== null && transitioningId !== 'predictive'}
             />
           </motion.div>
 
@@ -196,13 +205,9 @@ export default function ApplicationsSection() {
               ]}
               icon={<Target className="w-7 h-7" />}
               isActive={true}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  navigate('/eval-sphere');
-                }, 400);
-              }}
-              isTransitioning={isTransitioning}
+              onClick={() => handleCapabilityClick('/eval-sphere', 'eval-sphere', 'Launching Eval Sphere...')}
+              isTransitioning={transitioningId === 'eval-sphere'}
+              isOtherTransitioning={transitioningId !== null && transitioningId !== 'eval-sphere'}
             />
           </motion.div>
 
@@ -218,13 +223,9 @@ export default function ApplicationsSection() {
               ]}
               icon={<Brain className="w-7 h-7" />}
               isActive={true}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  navigate('/proposal-management-ai');
-                }, 400);
-              }}
-              isTransitioning={isTransitioning}
+              onClick={() => handleCapabilityClick('/proposal-management-ai', 'proposal', 'Analyzing Proposals...')}
+              isTransitioning={transitioningId === 'proposal'}
+              isOtherTransitioning={transitioningId !== null && transitioningId !== 'proposal'}
             />
           </motion.div>
 
@@ -240,13 +241,9 @@ export default function ApplicationsSection() {
               ]}
               icon={<MessageSquare className="w-7 h-7" />}
               isActive={true}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  navigate('/vendor-verse');
-                }, 400);
-              }}
-              isTransitioning={isTransitioning}
+              onClick={() => handleCapabilityClick('/vendor-verse', 'vendor', 'Connecting to VendorVerse...')}
+              isTransitioning={transitioningId === 'vendor'}
+              isOtherTransitioning={transitioningId !== null && transitioningId !== 'vendor'}
             />
           </motion.div>
         </motion.div>
