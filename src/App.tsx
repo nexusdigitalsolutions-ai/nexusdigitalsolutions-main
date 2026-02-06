@@ -2,7 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { PageTransitionProvider } from "./context/PageTransitionContext";
+import PageLoader from "./components/ui/PageLoader";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
@@ -40,11 +42,22 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <AnimatedRoutes />
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
+
+// Extract AppContent to use useNavigate hook inside provider
+function AppContent() {
+  const navigate = useNavigate(); // Now valid here
+  return (
+    <PageTransitionProvider navigate={navigate}>
+      <ScrollToTop />
+      <PageLoader />
+      <AnimatedRoutes />
+    </PageTransitionProvider>
+  )
+}
 
 export default App;
