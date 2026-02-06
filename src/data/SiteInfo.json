@@ -1,0 +1,11 @@
+{
+    "teamName": "Nexus Digital Solutions",
+    "email": "nexusdigitalsolutions.ai@gmail.com",
+    "currentYear": 2026,
+    "socialLinks": {
+        "twitter": "#",
+        "linkedin": "#",
+        "github": "#"
+    },
+    "logo": "@/assets/logo.png"
+}

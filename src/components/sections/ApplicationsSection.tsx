@@ -129,11 +129,11 @@ export default function ApplicationsSection() {
             id="applications-title"
             className="text-3xl md:text-5xl font-bold text-foreground mb-4"
           >
-            Assistive AI for{' '}
-            <span className="gradient-text">Accessibility</span>
+            Our Core AI{' '}
+            <span className="gradient-text">Capabilities</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Modular, reusable AI Tools designed for disabled and differently-abled users.
+            Scalable, intelligent AI solutions designed to transform enterprise operations and drive innovation.
           </p>
         </motion.div>
 

@@ -11,11 +11,11 @@ export default function HeroSection() {
     >
       {/* 3D AI Core Background */}
       <AICoreSphere />
-      
+
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80 pointer-events-none z-10" />
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none z-5" />
-      
+
       {/* Content */}
       <div className="relative z-20 section-container text-center">
         <motion.div
@@ -36,7 +36,7 @@ export default function HeroSection() {
             <br />
             <span className="text-foreground">Solutions</span>
           </motion.h1>
-          
+
           {/* Subtitle */}
           <motion.p
             className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto"
@@ -46,7 +46,7 @@ export default function HeroSection() {
           >
             Access AI Capabilities for Everyone
           </motion.p>
-          
+
           {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -67,10 +67,10 @@ export default function HeroSection() {
             </a>
           </motion.div>
         </motion.div>
-        
+
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute  left-1/2 -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}

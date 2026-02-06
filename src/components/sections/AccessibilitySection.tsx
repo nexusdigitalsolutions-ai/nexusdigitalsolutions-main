@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { 
-  Accessibility, 
-  Ear, 
-  MessageCircle, 
+import {
+  Sparkles,
+  Bot,
+  Layout,
   Brain,
-  Heart,
-  Users
+  Zap,
+  Users,
+  Heart
 } from 'lucide-react';
 
 interface AccessibilityCardProps {
@@ -41,24 +42,24 @@ function AccessibilityCard({ icon, title, description, delay }: AccessibilityCar
 export default function AccessibilitySection() {
   const categories = [
     {
-      icon: <Accessibility className="w-8 h-8" />,
-      title: 'Physically Disabled Users',
-      description: 'Voice control and hands-free navigation for complete accessibility.',
-    },
-    {
-      icon: <Ear className="w-8 h-8" />,
-      title: 'Hearing-Impaired Users',
-      description: 'Sign language avatars and visual communication tools.',
-    },
-    {
-      icon: <MessageCircle className="w-8 h-8" />,
-      title: 'Speech-Impaired Users',
-      description: 'Text-based interfaces and alternative input methods.',
-    },
-    {
       icon: <Brain className="w-8 h-8" />,
-      title: 'Neurodiverse Users',
-      description: 'Customizable interfaces for ADHD, autism, and cognitive differences.',
+      title: 'Context-Aware Models',
+      description: 'LLMs fine-tuned on your business data to understand intent, not just keywords.',
+    },
+    {
+      icon: <Layout className="w-8 h-8" />,
+      title: 'Generative UI Systems',
+      description: 'Interfaces that adapt in real-time, rendering the perfect controls for every task.',
+    },
+    {
+      icon: <Bot className="w-8 h-8" />,
+      title: 'Autonomous Agents',
+      description: 'AI workers that proactively execute complex workflows behind the scenes.',
+    },
+    {
+      icon: <Sparkles className="w-8 h-8" />,
+      title: 'Hyper-Personalization',
+      description: 'Experiences that evolve with every interaction, anticipating user needs.',
     },
   ];
 
@@ -83,23 +84,22 @@ export default function AccessibilitySection() {
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <Heart className="w-10 h-10 text-accent" />
+              <Zap className="w-10 h-10 text-accent" />
             </motion.div>
           </div>
-          
+
           <h2
             id="accessibility-title"
             className="text-3xl md:text-5xl font-bold text-foreground mb-4"
           >
-            Powered by{' '}
-            <span className="gradient-text">Cutting-Edge AI Technology</span>
+            Engineering <span className="gradient-text">Next-Gen Experiences</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Designed with the latest AI and development tools to ensure equal access 
-            and an inclusive experience for all users.
+            We don't just build chatbots. We create intelligent, adaptive AI models that
+            fundamentally reshape how users interact with technology.
           </p>
         </motion.div>
-        
+
         {/* Accessibility Categories */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {categories.map((category, index) => (
@@ -110,7 +110,7 @@ export default function AccessibilitySection() {
             />
           ))}
         </div>
-        
+
         {/* Visual element - wave pattern */}
         <motion.div
           className="relative h-32 overflow-hidden"
@@ -151,7 +151,7 @@ export default function AccessibilitySection() {
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 border border-border">
             <Users className="w-5 h-5 text-primary" />
             <span className="text-muted-foreground">
-              Designed for <span className="text-foreground font-medium">Humans</span>, 
+              Designed for <span className="text-foreground font-medium">Humans</span>,
               Not Just Users
             </span>
           </div>
