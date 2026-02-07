@@ -21,26 +21,27 @@ function SceneLoader() {
 
 export default function Index() {
   return (
-    <motion.main
-      className="relative min-h-screen overflow-x-hidden"
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      {/* Background 3D particles */}
-      <Suspense fallback={<SceneLoader />}>
-        <ParticleField />
-      </Suspense>
-      
-      {/* Navigation */}
+    <>
       <Navigation />
-      
-      {/* Page Sections */}
-      <HeroSection />
-      <ApplicationsSection />
-      <AccessibilitySection />
-      <TechnologySection />
-      <Footer />
-    </motion.main>
+
+      <motion.main
+        className="relative min-h-screen overflow-x-hidden"
+        initial={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Background 3D particles */}
+        <Suspense fallback={<SceneLoader />}>
+          <ParticleField />
+        </Suspense>
+
+        {/* Page Sections */}
+        <HeroSection />
+        <ApplicationsSection />
+        <AccessibilitySection />
+        <TechnologySection />
+        <Footer />
+      </motion.main>
+    </>
   );
 }

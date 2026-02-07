@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Heart, Github, Linkedin, Twitter } from 'lucide-react';
-
+import { Heart, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import logoImg from '@/assets/logo.png';
+import SiteInfo from '@/data/SiteInfo.json';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -37,7 +38,11 @@ export default function Footer() {
             transition={{ delay: 0.2 }}
           >
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-              <Heart className="w-5 h-5 text-primary" aria-hidden="true" />
+              <img
+                src={logoImg}
+                alt="Nexus Digital Solutions"
+                className="w-10 h-10 rounded-full object-cover border border-primary/20"
+              />
             </div>
             <span className="text-xl font-bold text-foreground">
               Nexus Digital Solutions
@@ -75,28 +80,25 @@ export default function Footer() {
             </a>
           </motion.div>
 
-          {/* Navigation Links */}
-          <motion.nav
-            className="flex flex-wrap justify-center gap-6 mb-8"
+          {/* Contact Info */}
+          <motion.div
+            className="flex items-center gap-2 mb-8 bg-muted/30 px-6 py-3 rounded-full border border-primary/10 hover:border-primary/30 transition-all duration-300"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            aria-label="Footer navigation"
           >
-            <a href="#applications" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Applications
+            <Mail className="w-5 h-5 text-primary" />
+            <a
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${SiteInfo.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              {SiteInfo.email}
             </a>
-            <a href="#capabilities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Capabilities
-            </a>
-            <a href="#technology" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Technology
-            </a>
-            <a href="#accessibility" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Accessibility
-            </a>
-          </motion.nav>
+          </motion.div>
+
 
           {/* Copyright */}
           <motion.p
