@@ -246,6 +246,24 @@ export default function ApplicationsSection() {
               isOtherTransitioning={transitioningId !== null && transitioningId !== 'vendor'}
             />
           </motion.div>
+
+          {/* Anti-Gravity: Private AI PDF */}
+          <motion.div variants={itemVariants}>
+            <ApplicationCard
+              title="Anti-Gravity: Private AI PDF"
+              features={[
+                'Privacy-First Processing',
+                'AI-Powered PDF Tools',
+                'Offline-First Architecture',
+                'One-Time Payment Model',
+              ]}
+              icon={<Shield className="w-7 h-7" />}
+              isActive={true}
+              onClick={() => handleCapabilityClick('/anti-gravity-private-ai-pdf', 'anti-gravity', 'Loading Anti-Gravity...')}
+              isTransitioning={transitioningId === 'anti-gravity'}
+              isOtherTransitioning={transitioningId !== null && transitioningId !== 'anti-gravity'}
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>
