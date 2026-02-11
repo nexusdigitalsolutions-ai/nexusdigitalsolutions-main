@@ -27,6 +27,7 @@ export default function Navigation() {
     { href: '/vendor-verse', label: 'Vendor Verse' },
     { href: '/eval-sphere', label: 'Eval Sphere' },
     { href: '/proposal-management-ai', label: 'Proposal Management AI' },
+    { href: '/anti-gravity-private-ai-pdf', label: 'Anti-Gravity:Private AI PDF' },
   ];
 
   return (
@@ -38,14 +39,14 @@ export default function Navigation() {
         <nav className="section-container" aria-label="Main navigation">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3" aria-label="Nexus Digital Solutions home">
+            <Link to="/" className="flex items-center gap-3" aria-label={SiteInfo.name}>
               <img
                 src={logoImg}
-                alt="Nexus Digital Solutions"
+                alt={SiteInfo.name}
                 className="w-10 h-10 rounded-full object-cover border border-primary/20"
               />
               <span className="text-lg font-bold text-foreground hidden sm:block">
-                Nexus
+                {SiteInfo.name}
               </span>
             </Link>
 

@@ -13,6 +13,7 @@ import PredictiveMaintenance from "./pages/PredictiveMaintenance";
 import VendorVerse from "./pages/VendorVerse";
 import EvalSphere from "./pages/EvalSphere";
 import ProposalManagementAI from "./pages/ProposalManagement/ProposalManagementAI";
+import AntiGravityPrivateAIPDF from "./pages/AntiGravityPrivateAIPDF";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ function AnimatedRoutes() {
         <Route path="/vendor-verse" element={<VendorVerse />} />
         <Route path="/eval-sphere" element={<EvalSphere />} />
         <Route path="/proposal-management-ai" element={<ProposalManagementAI />} />
+        <Route path="/anti-gravity-private-ai-pdf" element={<AntiGravityPrivateAIPDF />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

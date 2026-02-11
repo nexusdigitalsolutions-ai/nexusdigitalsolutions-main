@@ -5,6 +5,8 @@ import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logoImg from '@/assets/logo.png';
 import EvalSphereSection from '@/components/sections/EvalSphereSection';
+import SecondoryNav from '@/components/sections/SecondoryNav';
+import SecondoryFooter from '@/components/sections/SecondoryFooter';
 
 // Lazy load the background particle field for performance
 // Lazy load the background particle field for performance
@@ -49,40 +51,7 @@ export default function EvalSphere() {
             </Suspense>
 
             {/* Back Navigation */}
-            <motion.header
-                className="fixed top-0 left-0 right-0 z-50 bg-slate-950/50 backdrop-blur-md border-b border-white/5"
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-            >
-                <nav className="section-container" aria-label="Eval Sphere navigation">
-                    <div className="flex items-center justify-between h-16 md:h-20">
-                        <Link
-                            to="/"
-                            className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors duration-200 group"
-                            aria-label="Back to home"
-                        >
-                            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
-                            <span className="text-sm font-medium">Back to Home</span>
-                        </Link>
-
-                        {/* Logo */}
-                        <div className="flex items-center gap-3">
-                            <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10 shadow-lg shadow-cyan-500/20 group">
-                                <img
-                                    src={logoImg}
-                                    alt="Nexus Digital Solutions"
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                            <span className="text-lg font-bold text-white hidden sm:block tracking-wide">
-                                Nexus AI
-                            </span>
-                        </div>
-                    </div>
-                </nav>
-            </motion.header>
+            <SecondoryNav />
 
             {/* Hero Banner */}
             <motion.section
@@ -120,13 +89,7 @@ export default function EvalSphere() {
             <EvalSphereSection />
 
             {/* Footer */}
-            <footer className="relative py-12 border-t border-border/50">
-                <div className="section-container text-center">
-                    <p className="text-muted-foreground text-sm">
-                        © 2025 Nexus Digital Solutions. Designing AI for Humans.
-                    </p>
-                </div>
-            </footer>
+            <SecondoryFooter />
         </motion.main>
     );
 }

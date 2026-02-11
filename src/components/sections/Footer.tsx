@@ -40,12 +40,12 @@ export default function Footer() {
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
               <img
                 src={logoImg}
-                alt="Nexus Digital Solutions"
+                alt={SiteInfo.name}
                 className="w-10 h-10 rounded-full object-cover border border-primary/20"
               />
             </div>
             <span className="text-xl font-bold text-foreground">
-              Nexus Digital Solutions
+              {SiteInfo.name}
             </span>
           </motion.div>
 
@@ -108,7 +108,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
-            © {currentYear} Nexus Digital Solutions. All rights reserved.
+            © {currentYear} {SiteInfo.name}. All rights reserved.
           </motion.p>
         </div>
       </div>

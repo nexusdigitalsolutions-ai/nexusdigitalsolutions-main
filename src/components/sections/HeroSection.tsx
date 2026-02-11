@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import AICoreSphere from '../three/AICoreSphere';
-
+import SiteInfo from '@/data/SiteInfo.json';
 export default function HeroSection() {
   return (
     <section
@@ -31,10 +31,10 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <span className="text-foreground">Nexus</span>{' '}
-            <span className="gradient-text">Digital</span>
+            <span className="text-foreground">{SiteInfo.name.split(' ')[0]}</span>{' '}
+            <span className="gradient-text">{SiteInfo.name.split(' ')[1]}</span>
             <br />
-            <span className="text-foreground">Solutions</span>
+            <span className="text-foreground">{SiteInfo.name.split(' ')[2]}</span>
           </motion.h1>
 
           {/* Subtitle */}

@@ -3,11 +3,10 @@ import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import VendorVerseSection from '@/components/sections/VendorVerseSection';
+import AntiGravitySection from '@/components/sections/AntiGravitySection';
 import logoImg from '@/assets/logo.png';
-import SecondoryNav from '@/components/sections/SecondoryNav';
+import SiteInfo from '@/data/SiteInfo.json';
 import SecondoryFooter from '@/components/sections/SecondoryFooter';
-
 // Lazy load the background particle field for performance
 const ParticleField = lazy(() => import('@/components/three/ParticleField'));
 
@@ -19,7 +18,7 @@ function SceneLoader() {
     );
 }
 
-export default function VendorVerse() {
+export default function AntiGravityPrivateAIPDF() {
     return (
         <motion.main
             className="relative min-h-screen overflow-x-hidden"
@@ -37,7 +36,37 @@ export default function VendorVerse() {
             </Suspense>
 
             {/* Back Navigation */}
-            <SecondoryNav />
+            <motion.header
+                className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50"
+                initial={{ y: -100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+            >
+                <nav className="section-container" aria-label="Anti-Gravity navigation">
+                    <div className="flex items-center justify-between h-16 md:h-20">
+                        <Link
+                            to="/"
+                            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+                            aria-label="Back to home"
+                        >
+                            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
+                            <span className="text-sm font-medium">Back to Home</span>
+                        </Link>
+
+                        {/* Logo */}
+                        <div className="flex items-center gap-3">
+                            <img
+                                src={logoImg}
+                                alt={SiteInfo.name}
+                                className="w-10 h-10 rounded-full object-cover border border-primary/20"
+                            />
+                            <span className="text-lg font-bold text-foreground hidden sm:block">
+                                {SiteInfo.name}
+                            </span>
+                        </div>
+                    </div>
+                </nav>
+            </motion.header>
 
             {/* Hero Banner */}
             <motion.section
@@ -54,21 +83,21 @@ export default function VendorVerse() {
                         transition={{ duration: 0.4, delay: 0.4 }}
                     >
                         <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                        <span className="text-sm text-primary font-medium">Full-Stack AI Application</span>
+                        <span className="text-sm text-primary font-medium">Privacy-First PDF Solution</span>
                     </motion.div>
 
                     <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                        VENDOR
-                        <span className="gradient-text"> VERSE</span>
+                        ANTI-GRAVITY:
+                        <span className="gradient-text"> PRIVATE AI PDF</span>
                     </h1>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-                        Chat with your Data. Intelligent Retrieval Augmented Generation (RAG) and Vision capabilities for seamless vendor support.
+                        Local-first, AI-powered PDF toolkit that processes documents on-device with optional AI intelligence through a privacy-preserving proxy. Professional-grade tools with a one-time payment model.
                     </p>
                 </div>
             </motion.section>
 
             {/* Features Content */}
-            <VendorVerseSection />
+            <AntiGravitySection />
 
             {/* Footer */}
             <SecondoryFooter />
