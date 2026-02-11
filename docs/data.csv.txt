@@ -1,9 +1,0 @@
-Tool,Free Available,Free Limits (Email/Day),Premium Starting Price (Approx),Premium Email Limits (Estimate per Day),LinkedIn Automation,Multi-Platform (Scraping/Actions),Ease of Use,Safety (Risk Level),Best for
-Phantombuster,Yes,0,≈$56/mo,0,Yes (limited),Yes (many sites),Medium,Medium,Data scraping + multi-platform workflow
-TexAu,Yes,0,≈$79/mo,0,Yes (limited),Yes (many sites),Medium,Medium,Lead scraping + automation
-Waalaxy,Yes (limited),0,≈$20–$66/mo,≈150–500,Yes (LinkedIn+email),No (focused),Easy,Low,LinkedIn + email outreach beginners
-Dripify,Yes (trial),≈50,≈$39–$99/mo,≈100–500,Yes (LinkedIn+email),No (focused),Medium,Low SMB LinkedIn campaigns
-Expandi,Yes (trial),≈50,≈$79–$99/mo,≈300–500,Yes (LinkedIn+email),No (focused),Medium,Low Structured campaigns + safety
-Apollo.io,Yes,≈250/month (free tier),≈$49–$99/mo,≈1000+/month,Yes (limited),Yes (data + email),Easy,Low Email campaigns + lead database
-Gmail (provider),Yes,≈100–150 (account limit),N/A,≈100–150,No,No,N/A,High Email sending baseline limit
-Google Workspace (provider),Yes,≈200–400 safe, N/A,≈200–400,No,No,N/A,High Email sending baseline limit
